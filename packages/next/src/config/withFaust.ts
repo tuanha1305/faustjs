@@ -7,9 +7,15 @@ export interface WithFaustConfig {
   previewDestination?: string;
 }
 
+export function previewSourceRedirectRegex(previewDestination: string) {
+  return `/((?!${previewDestination}).*)`;
+}
+
+export const DEFAULT_PREVIEW_DESTINATION = '/preview';
+
 export async function createRedirects(
   redirectFn?: NextConfig['redirects'],
-  previewDestination = '/preview',
+  previewDestination = DEFAULT_PREVIEW_DESTINATION,
 ): Promise<Redirect[]> {
   let redirects: Redirect[] = [];
 
@@ -18,7 +24,7 @@ export async function createRedirects(
   }
 
   redirects.unshift({
-    source: `/((?!${trim(previewDestination, '/')}$).*)`,
+    source: previewSourceRedirectRegex(previewDestination),
     has: [
       {
         type: 'query',

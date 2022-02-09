@@ -1,4 +1,9 @@
-import { createRedirects, withFaust } from '../src/config/withFaust';
+import {
+  createRedirects,
+  withFaust,
+  previewSourceRedirectRegex,
+  DEFAULT_PREVIEW_DESTINATION,
+} from '../src/config/withFaust';
 
 describe('withFaust', () => {
   test('withFaust merges default config with user specified config', async () => {
@@ -78,5 +83,38 @@ describe('withFaust', () => {
     ];
 
     expect(configRedirects).toStrictEqual(expectedRedirects);
+  });
+
+  test('preview redirect regex', async () => {
+    const defaultPreviewRegex = new RegExp(
+      previewSourceRedirectRegex(DEFAULT_PREVIEW_DESTINATION),
+    );
+
+    expect(defaultPreviewRegex.test('/about')).toBe(true);
+
+    expect(defaultPreviewRegex.test('/sample-page')).toBe(true);
+
+    // WordPress post preview URL that we redirect to the preview page
+    expect(
+      defaultPreviewRegex.test(
+        '/hello-world/?preview=true&p=322&typeName=Post',
+      ),
+    ).toBe(true);
+
+    // Preview page URL that has already been redirected
+    expect(
+      defaultPreviewRegex.test('/preview?preview=true&p=322&typeName=Post'),
+    ).toBe(false);
+
+    // Preview page URL that has already been redirected with trailing slash
+    expect(
+      defaultPreviewRegex.test('/preview/?preview=true&p=322&typeName=Post'),
+    ).toBe(false);
+
+    expect(
+      defaultPreviewRegex.test('/posts/how-to-preview-posts-in-wordpress'),
+    ).toBe(true);
+
+    expect(defaultPreviewRegex.test('/my-preview')).toBe(true);
   });
 });
