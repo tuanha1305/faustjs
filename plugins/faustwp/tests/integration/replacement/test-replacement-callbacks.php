@@ -149,13 +149,40 @@ class ReplacementCallbacksTestCases extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Tests get_preview_post_link() returns rewritten value when content replacement is enabled.
+	 * Tests get_permalink() returns rewritten value when content replacement is enabled.
 	 */
-	public function test_post_link_returns_filtered_link_when_content_replacement_enabled() {
+	public function test_post_link_returns_filtered_link_when_content_replacement_is_enabled() {
 		faustwp_update_setting( 'frontend_uri', 'http://moo' );
 		faustwp_update_setting( 'enable_rewrites', true );
-		// @todo this feels like a hack
+
+		$this->assertSame( 'http://moo/?p=' . $this->post_id, get_permalink( $this->post_id ) );
+	}
+
+	/**
+	 * Tests get_preview_post_link() returns rewritten value.
+	 */
+	public function test_post_preview_link_returns_filtered_link() {
+		faustwp_update_setting( 'frontend_uri', 'http://moo' );
+
 		$this->assertSame( 'http://moo/?p=' . $this->post_id . '&preview=true&typeName=Post', get_preview_post_link( $this->post_id ) );
+	}
+
+	/**
+	 * Tests get_preview_post_link() filters link for post types that are not registered with WP GraphQL.
+	 */
+	public function test_post_preview_link_filters_link_for_posts_not_registered_with_wpgraphql() {
+		faustwp_update_setting( 'frontend_uri', 'http://moo' );
+
+		register_post_type('notgraphql', ['public' => true]);
+
+		$post_id = wp_insert_post( [
+			'title'        => 'Hello world',
+			'post_content' => 'Hi',
+			'post_status'  => 'publish',
+			'post_type'    => 'notgraphql'
+		] );
+
+		$this->assertSame( 'http://moo/?notgraphql=' . $post_id . '&preview=true&p=' . $post_id, get_preview_post_link( $post_id ) );
 	}
 
 	/**
