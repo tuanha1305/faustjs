@@ -1,7 +1,7 @@
 import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-export default function MetaTags() {
+export default function SocialMediaMetaTags() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
@@ -19,7 +19,7 @@ export default function MetaTags() {
         property="og:image"
         content="https://hcixzyt38dn5ak04xxcqc36lf.js.wpenginepowered.com/docs/img/logo-with-background.jpg"
       />
-      <meta property="twitter:image:alt" content="WP Engine Developers Logo" />
+      <meta property="twitter:image:alt" content="Faust.js Logo" />
     </>
   );
 }

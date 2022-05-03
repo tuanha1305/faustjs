@@ -7,7 +7,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import HomepageFeatures from '../components/Features/HomepageFeatures';
 import HomepageGetStarted from '../components/GetStarted/HomepageGetStarted';
-import MetaTags from '../components/MetaTags';
+import SocialMediaMetaTags from '../components/SocialMediaMetaTags';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -42,7 +42,7 @@ export default function Home() {
           httpEquiv="Content-Security-Policy"
           content="default-src 'self' http://kuergg39mb-dsn.algolia.net data: 'unsafe-inline' 'unsafe-eval'"
         />
-        <MetaTags />
+        <SocialMediaMetaTags />
       </Head>
       <Layout
         title={siteConfig.tagline}
