@@ -9,7 +9,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: faustwp
  * Domain Path: /languages
- * Version: 0.7.6
+ * Version: 0.7.8
  * Requires PHP: 7.2
  * Requires at least: 5.7
  *
@@ -35,6 +35,7 @@ require FAUSTWP_DIR . '/includes/graphql/functions.php';
 require FAUSTWP_DIR . '/includes/utilities/functions.php';
 require FAUSTWP_DIR . '/includes/auth/callbacks.php';
 require FAUSTWP_DIR . '/includes/deny-public-access/functions.php';
+require FAUSTWP_DIR . '/includes/detect-conflicts/functions.php';
 require FAUSTWP_DIR . '/includes/deny-public-access/callbacks.php';
 require FAUSTWP_DIR . '/includes/menus/callbacks.php';
 require FAUSTWP_DIR . '/includes/admin-menus/callbacks.php';
@@ -45,3 +46,4 @@ require FAUSTWP_DIR . '/includes/rest/callbacks.php';
 require FAUSTWP_DIR . '/includes/settings/callbacks.php';
 require FAUSTWP_DIR . '/includes/updates/upgrade-database.php';
 require FAUSTWP_DIR . '/includes/utilities/callbacks.php';
+require FAUSTWP_DIR . '/includes/detect-conflicts/callbacks.php';

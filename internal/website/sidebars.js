@@ -22,6 +22,11 @@ module.exports = {
         },
         {
           type: 'doc',
+          label: 'Introduction to Next.js',
+          id: 'tutorial/nextjs-intro',
+        },
+        {
+          type: 'doc',
           label: 'Create A Basic Headless WordPress Site',
           id: 'tutorial/basic-headless-site',
         },
@@ -41,6 +46,23 @@ module.exports = {
           id: 'tutorial/querying-data',
         },
       ],
+    },
+    {
+      type: 'category',
+      label: 'Core Package',
+      items: [
+        {
+          type: 'category',
+          label: 'Reference',
+          items: [
+            {
+              type: 'doc',
+              label: 'config',
+              id: 'core/reference/config',
+            },
+          ]
+        }
+      ]
     },
     {
       type: 'category',
@@ -99,6 +121,11 @@ module.exports = {
               type: 'doc',
               label: 'Testing with Jest',
               id: 'next/guides/testing-with-jest',
+            },
+            {
+              type: 'doc',
+              label: 'Sitemaps',
+              id: 'next/guides/sitemaps',
             },
             {
               type: 'doc',
@@ -189,8 +216,28 @@ module.exports = {
             },
             {
               type: 'doc',
+              label: 'handleSitemapRequests',
+              id: 'next/reference/handle-sitemap-requests',
+            },
+            {
+              type: 'doc',
               label: 'URL Params',
               id: 'next/reference/expected-url-params',
+            },
+            {
+              type: 'doc',
+              label: 'config',
+              id: 'next/reference/config',
+            },
+            {
+              type: 'doc',
+              label: 'getNextServerSideProps',
+              id: 'next/reference/getNextServerSideProps',
+            },
+            {
+              type: 'doc',
+              label: 'getNextStaticProps',
+              id: 'next/reference/getNextStaticProps',
             },
           ],
         },
@@ -219,43 +266,12 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'FaustWP Plugin',
+      label: 'Companion WordPress Plugin',
       items: [
         {
           type: 'doc',
           label: 'Settings Reference',
           id: 'faustwp/settings',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Changelogs',
-      items: [
-        {
-          type: 'doc',
-          label: '@faustjs/core',
-          id: 'changelog/core',
-        },
-        {
-          type: 'doc',
-          label: '@faustjs/next',
-          id: 'changelog/next',
-        },
-        {
-          type: 'doc',
-          label: '@faustjs/react',
-          id: 'changelog/react',
-        },
-        {
-          type: 'doc',
-          label: 'FaustWP',
-          id: 'changelog/faustwp',
-        },
-        {
-          type: 'doc',
-          label: 'Faust.js 0.9.0 - 12.0.0',
-          id: 'release-notes',
         },
       ],
     },

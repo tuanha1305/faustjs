@@ -1,5 +1,18 @@
 # FaustWP
 
+## 0.7.8
+
+### Patch Changes
+
+- 8942b83: Adds warning when known incompatible plugins are active.
+- 6d3f5de: Fix conflict with PublishPress that caused preview links to fail
+
+## 0.7.7
+
+### Patch Changes
+
+- 6a75593: Fixes a PHP 8 warning that occured on post types not registered with WP GraphQL [#812](https://github.com/wpengine/faustjs/pull/812)
+
 ## 0.7.6
 
 ### Patch Changes
