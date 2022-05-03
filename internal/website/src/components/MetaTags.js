@@ -15,7 +15,10 @@ export default function MetaTags() {
         property="og:description"
         content={siteConfig.customFields.description ?? ''}
       />
-      <meta property="og:image" content="/docs/img/logo-with-background.jpg" />
+      <meta
+        property="og:image"
+        content="https://hcixzyt38dn5ak04xxcqc36lf.js.wpenginepowered.com/docs/img/logo-with-background.jpg"
+      />
       <meta property="twitter:image:alt" content="WP Engine Developers Logo" />
     </>
   );
