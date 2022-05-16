@@ -1,5 +1,18 @@
 # @faustjs/core
 
+## 0.15.6
+
+### Patch Changes
+
+- a03fae1: Adds @deprecated flag in core/config `applyRequestContext`
+- 59241bb: build: Updates eslint to v8
+
+## 0.15.4
+
+### Patch Changes
+
+- d2b2b39: Fixed previews when trailingSlash is enabled in Next.js config
+
 ## 0.15.2
 
 ### Patch Changes
