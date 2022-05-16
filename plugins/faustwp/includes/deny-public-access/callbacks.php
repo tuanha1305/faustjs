@@ -32,11 +32,11 @@ function deny_public_access() {
 	if ( ! $frontend_uri ) {
 		return;
 	}
-	
-	// Allow for some URLs not to be redirected
-	$excluded_pages = apply_filters( 'faustwp_exclude_from_public_redirect', [] );
 
-	if( in_array( basename( add_query_arg( null, null ) ), $excluded_pages ) ) {
+	// Allow for some URLs not to be redirected.
+	$excluded_pages = apply_filters( 'faustwp_exclude_from_public_redirect', array() );
+
+	if ( in_array( basename( add_query_arg( null, null ) ), $excluded_pages, true ) ) {
 		return;
 	}
 
