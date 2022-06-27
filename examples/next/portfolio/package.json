@@ -1,0 +1,45 @@
+{
+  "name": "atlas-blueprint-portfolio-nx",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "clean": "rimraf .next node_modules",
+    "generate": "gqty generate",
+    "wpe-build": "next build",
+    "format": "prettier --write 'src/**/*.{js,jsx,md,mdx,css,scss}'",
+    "format:check": "prettier --check 'src/**/*.{js,jsx,md,mdx,css,scss}'"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.6.6",
+    "faust-nx": "file:../../../packages/faust-nx/dist/index.js",
+    "next": "12.1.6",
+    "normalize.css": "^8.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.4.0",
+    "react-responsive-carousel": "^3.2.23",
+    "sharp": "^0.30.7",
+    "use-debounce": "^7.0.1"
+  },
+  "devDependencies": {
+    "@wordpress/base-styles": "^4.5.0",
+    "@wordpress/block-library": "^7.8.0",
+    "dotenv-flow": "^3.2.0",
+    "eslint": "8.18.0",
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "next-with-apollo-possible-types": "^3.0.1",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.53.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
