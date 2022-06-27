@@ -1,0 +1,13 @@
+fragment FeaturedImageFragment on NodeWithFeaturedImage {
+  featuredImage {
+    node {
+      id
+      sourceUrl
+      altText
+      mediaDetails {
+        width
+        height
+      }
+    }
+  }
+}

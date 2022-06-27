@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.6",
+    "graphql": "^16.5.0",
+    "graphql-tag": "^2.12.6",
     "faust-nx": "file:../../../packages/faust-nx/dist/index.js",
     "next": "12.1.6",
     "normalize.css": "^8.0.1",

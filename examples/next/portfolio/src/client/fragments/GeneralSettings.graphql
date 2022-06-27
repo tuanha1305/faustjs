@@ -1,0 +1,4 @@
+fragment GeneralSettingsFragment on GeneralSettings {
+  title
+  description
+}
