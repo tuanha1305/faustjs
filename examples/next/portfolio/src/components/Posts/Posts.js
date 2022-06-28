@@ -55,7 +55,7 @@ function Posts({ posts, intro, id }) {
                 <Heading level="h4" className={styles.header}>
                   <Link href={post?.uri ?? '#'}>
                     <a ref={isFirstNewResult ? firstNewResultRef : null}>
-                      {post.title()}
+                      {post.title}
                     </a>
                   </Link>
                 </Heading>
@@ -72,6 +72,23 @@ function Posts({ posts, intro, id }) {
       </div>
     </section>
   );
+}
+
+Posts.fragments = {
+  entry: `
+    fragment PostFragment on Post {
+      id
+      ...FeaturedImageFragment
+      uri
+      title
+      author {
+        node {
+          name
+        }
+      }
+      date
+    }
+  `
 }
 
 export default Posts;

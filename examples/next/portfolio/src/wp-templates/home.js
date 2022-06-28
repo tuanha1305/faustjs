@@ -10,17 +10,21 @@ import {
   Footer,
   Heading,
   Button,
-  CTA
+  CTA,
+  Posts
 } from 'components';
 import { pageTitle } from 'utils';
 import styles from 'styles/pages/_Home.module.scss';
 import GeneralSettingsFragment from 'client/fragments/GeneralSettings.graphql';
 import FeaturedImageFragment from 'client/fragments/FeaturedImage.graphql';
 
+const postsPerPage = 3;
+
 function Component(props) {
   const generalSettings = props?.data?.generalSettings;
-  const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
-  const footerMenu = props?.data?.footerMenuItems.nodes ?? [];
+  const primaryMenu = props?.data?.headerMenuItems?.nodes.filter(n => !Array.isArray(n)) ?? [];
+  const footerMenu = props?.data?.footerMenuItems.nodes.filter(n => !Array.isArray(n)) ?? [];
+  const posts = props?.data?.posts.nodes.filter(n => !Array.isArray(n)) ?? [];
 
   const mainBanner = {
     sourceUrl: '/static/banner.jpeg',
@@ -59,7 +63,7 @@ function Component(props) {
           <section className="cta">
             <CTA
               Button={() => (
-                <Button href="/posts">
+                <Button href="/category/uncategorised">
                   Get Started <FaArrowRight style={{ marginLeft: `1rem` }} />
                 </Button>
               )}
@@ -74,11 +78,12 @@ function Component(props) {
             <Heading className={styles.heading} level="h2">
               Latest Posts
             </Heading>
+            <Posts posts={posts} id="posts-list" />
           </section>
           <section className="cta">
             <CTA
               Button={() => (
-                <Button href="/posts">
+                <Button href="/category/uncategorised">
                   Get Started <FaArrowRight style={{ marginLeft: `1rem` }} />
                 </Button>
               )}
@@ -98,14 +103,21 @@ function Component(props) {
 }
 
 const variables = ({ uri }) => {
-  return { uri, headerLocation: MENUS.PRIMARY_LOCATION, footerLocation: MENUS.FOOTER_LOCATION};
+  return { first: postsPerPage, Location: MENUS.PRIMARY_LOCATION, footerLocation: MENUS.FOOTER_LOCATION};
 };
 
 
 const query = gql`
   ${GeneralSettingsFragment}
+  ${FeaturedImageFragment}
   ${NavigationMenu.fragments.entry}
-  query GetPageData($headerLocation: MenuLocationEnum, $footerLocation: MenuLocationEnum) {
+  ${Posts.fragments.entry}
+  query GetPageData($first: Int, $headerLocation: MenuLocationEnum, $footerLocation: MenuLocationEnum) {
+    posts(first: $first) {
+      nodes {
+        ...PostFragment
+      }
+    }
     generalSettings {
       ...GeneralSettingsFragment
     }
