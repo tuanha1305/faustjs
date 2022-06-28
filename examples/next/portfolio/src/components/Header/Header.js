@@ -1,5 +1,3 @@
-import * as MENUS from 'constants/menus';
-
 import { useState } from 'react';
 import { FaBars, FaSearch } from 'react-icons/fa';
 import Image from 'next/image';
@@ -13,7 +11,7 @@ import styles from './Header.module.scss';
  * @param {string} props.className An optional className to be added to the container.
  * @return {React.ReactElement} The FeaturedImage component.
  */
-export default function Header({ className }) {
+export default function Header({ menuItems, className }) {
   const [isNavShown, setIsNavShown] = useState(false);
 
   const headerClasses = [styles.header, className].join(' ');
@@ -52,8 +50,8 @@ export default function Header({ className }) {
           </button>
           <NavigationMenu
             id={styles['primary-navigation']}
-            className={navClasses.join(' ')}
-            menuLocation={MENUS.PRIMARY_LOCATION}
+            className={navClasses}
+            menuItems={menuItems}
           >
             <li>
               <Link href="/search">

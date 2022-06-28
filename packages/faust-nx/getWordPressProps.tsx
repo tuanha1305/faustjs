@@ -26,11 +26,12 @@ export interface getWordPressPropsConfig {
 export async function getWordPressProps(options: getWordPressPropsConfig) {
   const { client, templates, ctx } = options;
   let resolvedUrl = null;
-
   if (!isSSR(ctx)) {
     const wordPressNodeParams = ctx.params?.wordpressNode;
     if (wordPressNodeParams && Array.isArray(wordPressNodeParams)) {
       resolvedUrl = `/${wordPressNodeParams.join("/")}`;
+    } else {
+      resolvedUrl = '/';
     }
   } else {
     resolvedUrl = ctx.req.url;
