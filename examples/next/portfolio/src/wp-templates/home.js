@@ -16,7 +16,6 @@ import {
 import { pageTitle } from 'utils';
 import styles from 'styles/pages/_Home.module.scss';
 import GeneralSettingsFragment from 'client/fragments/GeneralSettings.graphql';
-import FeaturedImageFragment from 'client/fragments/FeaturedImage.graphql';
 
 const postsPerPage = 3;
 
@@ -109,7 +108,6 @@ const variables = ({ uri }) => {
 
 const query = gql`
   ${GeneralSettingsFragment}
-  ${FeaturedImageFragment}
   ${NavigationMenu.fragments.entry}
   ${Posts.fragments.entry}
   query GetPageData($first: Int, $headerLocation: MenuLocationEnum, $footerLocation: MenuLocationEnum) {

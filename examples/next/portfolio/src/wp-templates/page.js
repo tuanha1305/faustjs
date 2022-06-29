@@ -8,10 +8,10 @@ import {
   NavigationMenu,
   Header,
   Footer,
+  FeaturedImage
 } from 'components';
 import { pageTitle } from 'utils';
 import GeneralSettingsFragment from 'client/fragments/GeneralSettings.graphql';
-import FeaturedImageFragment from 'client/fragments/FeaturedImage.graphql';
 
 const Component = (props) => {
   const { title, content, featuredImage } = props?.data?.page ?? { title: ""};
@@ -49,7 +49,7 @@ const variables = ({ uri }) => {
 
 const query = gql`
   ${GeneralSettingsFragment}
-  ${FeaturedImageFragment}
+  ${FeaturedImage.fragments.entry}
   ${NavigationMenu.fragments.entry}
   query GetPageData($uri: ID!$headerLocation: MenuLocationEnum, $footerLocation: MenuLocationEnum) {
     page(id: $uri, idType: URI) {

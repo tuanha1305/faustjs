@@ -14,7 +14,6 @@ import {
 } from 'components';
 import { pageTitle } from 'utils';
 import GeneralSettingsFragment from 'client/fragments/GeneralSettings.graphql';
-import FeaturedImageFragment from 'client/fragments/FeaturedImage.graphql';
 
 function Component(props) {
   const generalSettings = props?.data?.generalSettings;
@@ -58,7 +57,6 @@ const variables = ({ uri }) => {
 
 const query = gql`
   ${GeneralSettingsFragment}
-  ${FeaturedImageFragment}
   ${NavigationMenu.fragments.entry}
   ${Posts.fragments.entry}
   query GetArchivePage($uri: String!, $first: Int, $headerLocation: MenuLocationEnum, $footerLocation: MenuLocationEnum) {

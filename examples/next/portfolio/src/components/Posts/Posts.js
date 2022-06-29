@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Heading, FeaturedImage, PostInfo } from 'components';
 import appConfig from 'app.config';
+import {gql} from '@apollo/client';
 import useFocusFirstNewResult from 'hooks/useFocusFirstNewResult';
 
 import styles from './Posts.module.scss';
@@ -75,7 +76,8 @@ function Posts({ posts, intro, id }) {
 }
 
 Posts.fragments = {
-  entry: `
+  entry: gql`
+    ${FeaturedImage.fragments.entry}
     fragment PostFragment on Post {
       id
       ...FeaturedImageFragment

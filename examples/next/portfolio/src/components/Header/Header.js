@@ -50,7 +50,7 @@ export default function Header({ menuItems, className }) {
           </button>
           <NavigationMenu
             id={styles['primary-navigation']}
-            className={navClasses}
+            className={navClasses.join(' ')}
             menuItems={menuItems}
           >
             <li>

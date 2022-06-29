@@ -8,10 +8,10 @@ import {
   NavigationMenu,
   Header,
   Footer,
+  FeaturedImage
 } from 'components';
 import { pageTitle } from 'utils';
 import GeneralSettingsFragment from 'client/fragments/GeneralSettings.graphql';
-import FeaturedImageFragment from 'client/fragments/FeaturedImage.graphql';
 
 const Component = (props) => {
   const { title, content, featuredImage } = props?.data?.post ?? { title: ""};
@@ -46,7 +46,7 @@ const Component = (props) => {
 
 const query = gql`
   ${GeneralSettingsFragment}
-  ${FeaturedImageFragment}
+  ${FeaturedImage.fragments.entry}
   ${NavigationMenu.fragments.entry}
   query GetPostData($uri: ID!, $headerLocation: MenuLocationEnum, $footerLocation: MenuLocationEnum) {
     post(id: $uri, idType: URI) {

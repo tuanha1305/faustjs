@@ -1,5 +1,5 @@
 import Image from 'next/image';
-
+import {gql} from '@apollo/client';
 import styles from './FeaturedImage.module.scss';
 /**
  * A page/post Featured Image component
@@ -41,4 +41,21 @@ export default function FeaturedImage({
       />
     </figure>
   ) : null;
+}
+
+FeaturedImage.fragments = {
+  entry: gql`
+    fragment FeaturedImageFragment on NodeWithFeaturedImage {
+      featuredImage {
+        node {
+          id
+          sourceUrl
+          altText
+          mediaDetails {
+            width
+            height
+          }
+        }
+      }
+    }`
 }
