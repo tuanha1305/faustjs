@@ -1,4 +1,5 @@
-import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
+import { ApolloClient } from 'faust-nx';
+import { HttpLink, InMemoryCache } from '@apollo/client';
 import possibleTypes from 'possibleTypes.json';
 
 let client = new ApolloClient({

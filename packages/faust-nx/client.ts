@@ -1,8 +1,8 @@
-import { useMemo } from 'react';
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 import merge from 'deepmerge';
 import { isEqual } from 'lodash';
-import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 import { AppProps } from 'next/app';
+import { useMemo } from 'react';
 
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__';
 
