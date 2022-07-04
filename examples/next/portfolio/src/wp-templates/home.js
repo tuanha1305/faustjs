@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import * as React from 'react';
 import * as MENUS from 'constants/menus';
 import { FaArrowRight } from 'react-icons/fa';
 import {
@@ -102,7 +103,7 @@ function Component(props) {
 }
 
 const variables = ({ uri }) => {
-  return { first: postsPerPage, Location: MENUS.PRIMARY_LOCATION, footerLocation: MENUS.FOOTER_LOCATION};
+  return { first: postsPerPage, headerLocation: MENUS.PRIMARY_LOCATION, footerLocation: MENUS.FOOTER_LOCATION};
 };
 
 
