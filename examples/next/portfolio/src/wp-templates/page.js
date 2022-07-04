@@ -51,7 +51,7 @@ const query = gql`
   ${GeneralSettingsFragment}
   ${FeaturedImage.fragments.entry}
   ${NavigationMenu.fragments.entry}
-  query GetPageData($uri: ID!$headerLocation: MenuLocationEnum, $footerLocation: MenuLocationEnum) {
+  query GetPageData($uri: ID!, $headerLocation: MenuLocationEnum, $footerLocation: MenuLocationEnum) {
     page(id: $uri, idType: URI) {
       title
       content
