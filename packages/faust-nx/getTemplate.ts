@@ -1,8 +1,11 @@
+import { faustNxHooks } from './hooks';
 import { WordPressTemplate } from './getWordPressProps';
 import { SeedNode } from './queries/seedQuery';
 
 export function getPossibleTemplates(node: SeedNode) {
-  const possibleTemplates = [];
+  const possibleTemplates =
+    (faustNxHooks.applyFilters('template-resolver', [], node) as string[]) ||
+    [];
 
   // Archive Page
   if (node.isTermNode) {
