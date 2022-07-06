@@ -62,16 +62,22 @@ composer phpcs:fix
 
 **WordPress Unit Tests**
 
-To run WordPress unit tests, first create the Docker containers from the `plugins/faustwp` directory:
+To run WordPress unit tests, first start the Docker application from the `plugins/faustwp` directory:
 
 ```
-docker-compose up -d
+composer run docker:start
 ```
 
-Once the containers are up, set up the test framework:
+If desired, you may specify the WP_VERSION you'd like to run tests against:
 
 ```
-docker-compose exec wordpress init-testing-environment.sh
+WP_VERSION=5.5 composer run docker:start
+```
+
+Once the containers are up, set up the test framework. If you want to enable code coverage reporting, make sure you provide the `COVERAGE=1` environment variable as a parameter:
+
+```
+docker-compose exec -e COVERAGE=1 wordpress init-testing-environment.sh
 ```
 
 Install and activate WP GraphQL:
@@ -89,7 +95,7 @@ docker-compose exec -w /var/www/html/wp-content/plugins/faustwp wordpress compos
 Finally, to remove the containers:
 
 ```
-docker-compose down
+composer run docker:stop
 ```
 
 ## End-2-End Testing
