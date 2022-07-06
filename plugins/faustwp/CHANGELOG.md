@@ -1,5 +1,11 @@
 # FaustWP
 
+## 0.7.10
+
+### Patch Changes
+
+- 0c757a2: Remove unnecessary config from wordpress.org zip.
+
 ## 0.7.9
 
 ### Patch Changes
